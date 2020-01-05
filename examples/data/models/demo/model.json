@@ -1,0 +1,153 @@
+{
+  "name": "DemoSchema",
+  "entities": [
+    {
+      "name": "Country",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "String",
+          "name": "name",
+          "optional": false
+        },
+        {
+          "type": "String",
+          "name": "code",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "City",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "String",
+          "name": "name",
+          "optional": false
+        },
+        {
+          "type": "Country",
+          "name": "country",
+          "optional": false
+        },
+        {
+          "type": "Timezone",
+          "name": "timezone",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "Timezone",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "Long",
+          "name": "timeOffset",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "uuid": false,
+      "fields": [
+        {
+          "type": "String",
+          "name": "name",
+          "optional": false
+        },
+        {
+          "type": "City",
+          "name": "city",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "Project",
+      "uuid": false,
+      "fields": [
+        {
+          "type": "Double",
+          "name": "revenue",
+          "optional": false
+        },
+        {
+          "type": "Company",
+          "name": "company",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "Employee",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "String",
+          "name": "name",
+          "optional": false
+        },
+        {
+          "type": "String",
+          "name": "email",
+          "optional": true
+        },
+        {
+          "type": "Long",
+          "name": "age",
+          "optional": true
+        },
+        {
+          "type": "Company",
+          "name": "company",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "Person",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "String",
+          "name": "name",
+          "optional": false
+        },
+        {
+          "type": "Person",
+          "name": "father",
+          "optional": true
+        },
+        {
+          "type": "Person",
+          "name": "mother",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "Dates",
+      "uuid": true,
+      "fields": [
+        {
+          "type": "LocalDateTime",
+          "name": "timestamp",
+          "optional": false
+        },
+        {
+          "type": "LocalDateTime",
+          "name": "datetime",
+          "optional": false
+        },
+        {
+          "type": "LocalDate",
+          "name": "date",
+          "optional": true
+        }
+      ]
+    }
+  ]
+}
